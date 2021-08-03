@@ -36,33 +36,31 @@ class _CategoryButton extends StatelessWidget {
 
   _CategoryButton({@required this.imagePath});
 
-  double getHorizontalPadding(double buttonWidth) => buttonWidth * 0.15;
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 4 / 2,
       child: SizeNotifier(
         builder: (context, size, child) {
-          return Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [Color(0xFF1F202C), Color(0xFF2D2F3B)],
+          return GestureDetector(
+            onTap: () => print('Go to category page'),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [Color(0xFF1F202C), Color(0xFF2D2F3B)],
+                ),
+                border: Border.all(
+                  color: Color(0xFF383943),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
+                ),
               ),
-              border: Border.all(
-                color: Color(0xFF383943),
-                width: 2,
-              ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(8),
-              ),
+              child: Image.asset(imagePath),
             ),
-            padding: EdgeInsets.symmetric(
-              horizontal: getHorizontalPadding(size.width),
-            ),
-            child: Image.asset(imagePath),
           );
         },
       ),
