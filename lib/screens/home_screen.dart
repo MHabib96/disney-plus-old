@@ -2,17 +2,12 @@ import 'package:disney_plus/components/category_showcase.dart';
 import 'package:disney_plus/components/custom_bottom_navigation_bar.dart';
 import 'package:disney_plus/components/highlight_slider.dart';
 import 'package:disney_plus/components/movie_list_view.dart';
-import 'package:disney_plus/utilities/constants.dart';
+import 'package:disney_plus/components/sliver_home_app_bar.dart';
 import 'package:flutter/material.dart';
 
 const String movieBase = 'assets/images/movies/';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
   List<String> _newToDisneyPlus() {
     return [
       "${movieBase}chip_n_dale.PNG",
@@ -35,24 +30,15 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
   }
 
-  var _logoOpacity = 1.0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(19, 21, 32, 1),
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          print(innerBoxIsScrolled);
           return [
-            SliverAppBar(
-              centerTitle: true,
-              toolbarHeight: 70,
-              backgroundColor: Colors.transparent,
-              title: Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Image.asset(kHomeScreenLogo, height: 60),
-              ),
+            SliverPersistentHeader(
+              delegate: SliverHomeAppBar(minExtent: 90, maxExtent: 90),
             ),
           ];
         },
