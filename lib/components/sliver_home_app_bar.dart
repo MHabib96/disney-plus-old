@@ -4,17 +4,38 @@ import 'package:flutter/material.dart';
 class SliverHomeAppBar extends SliverPersistentHeaderDelegate {
   final double minExtent;
   final double maxExtent;
+  final double topPadding;
 
-  SliverHomeAppBar({@required this.minExtent, @required this.maxExtent});
+  SliverHomeAppBar({
+    @required this.minExtent,
+    @required this.maxExtent,
+    this.topPadding = 0,
+  });
+
+  double _getHeaderOpacity(double shrinkOffset, double maxExtent) {
+    var opacity = 1.0;
+    //shrinkOffset * 2 makes header fade twice as fast.
+    if (shrinkOffset != maxExtent) {
+      opacity = (1 - (shrinkOffset * 2) / maxExtent);
+    }
+    return opacity < 0
+        ? 0
+        : opacity > 1
+            ? 1
+            : opacity;
+  }
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return SafeArea(
-      child: Opacity(
-        opacity: (1 - shrinkOffset / maxExtent),
-        child: Image.asset(
-          kHomeScreenLogo,
-          fit: BoxFit.fitHeight,
+      child: Padding(
+        padding: EdgeInsets.only(top: topPadding),
+        child: Opacity(
+          opacity: _getHeaderOpacity(shrinkOffset, maxExtent),
+          child: Image.asset(
+            kHomeScreenLogo,
+            fit: BoxFit.fitHeight,
+          ),
         ),
       ),
     );

@@ -38,7 +38,11 @@ class HomeScreen extends StatelessWidget {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             SliverPersistentHeader(
-              delegate: SliverHomeAppBar(minExtent: 90, maxExtent: 90),
+              delegate: SliverHomeAppBar(
+                minExtent: 90,
+                maxExtent: 90,
+                topPadding: 10,
+              ),
             ),
           ];
         },
