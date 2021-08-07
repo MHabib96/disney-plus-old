@@ -27,6 +27,7 @@ flutter:
     - assets/images/category_logos/
     - assets/images/highlights/
     - assets/images/movies/
+    - assets/images/
 
   # fonts:
   #   - family: Schyler

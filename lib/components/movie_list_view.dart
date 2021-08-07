@@ -1,13 +1,14 @@
+import 'package:disney_plus/models/movie.dart';
 import 'package:flutter/material.dart';
 
 class MovieListView extends StatelessWidget {
   final String label;
-  final List<String> images;
+  final List<Movie> movies;
   final double horizontalPadding;
 
   MovieListView({
     this.label,
-    this.images,
+    this.movies,
     this.horizontalPadding = 20,
   });
 
@@ -33,12 +34,12 @@ class MovieListView extends StatelessWidget {
             //shrinkWrap: true,
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            itemCount: images.length,
+            itemCount: movies.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset(images[index]),
+                child: Image.asset(movies[index].browseImagePath),
               );
             },
             separatorBuilder: (context, index) {

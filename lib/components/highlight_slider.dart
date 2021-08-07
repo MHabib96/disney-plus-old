@@ -1,48 +1,21 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:disney_plus/models/highlight.dart';
-import 'package:disney_plus/utilities/constants.dart';
+import 'package:disney_plus/models/movie.dart';
 import 'package:flutter/material.dart';
 
 class HighlightSlider extends StatelessWidget {
-  List<Highlight> _getHighlights() {
-    List<Highlight> highlights = [];
-    highlights.add(Highlight(
-      imagePath: kLokiHighlight,
-      notification: 'All Episodes Now Available',
-    ));
-    highlights.add(Highlight(
-      imagePath: kBlackWidowHighlight,
-      notification: 'Now Streaming with\nPremier Access',
-    ));
-    highlights.add(Highlight(
-      imagePath: kMonstersAtWorkHighlight,
-      notification: 'New Episode Now Streaming',
-      blend: true,
-    ));
-    highlights.add(Highlight(
-      imagePath: kHighSchoolMusicalHighlight,
-      notification: 'All Episodes Now Streaming',
-      blend: true,
-    ));
-    highlights.add(Highlight(
-      imagePath: kJungleCruiseHighlight,
-      notification: 'Now Streaming with\nPremier Access',
-      blend: true,
-    ));
-    return highlights;
-  }
+  final List<Movie> movies;
+
+  HighlightSlider({@required this.movies});
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
       items: [
-        for (var highlight in _getHighlights()) ...[
+        for (var movie in movies) ...[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 3),
             child: _HighlightSlide(
-              image: highlight.imagePath,
-              notification: highlight.notification,
-              blend: highlight.blend,
+              movie: movie,
             ),
           ),
         ],
@@ -60,15 +33,9 @@ class HighlightSlider extends StatelessWidget {
 }
 
 class _HighlightSlide extends StatelessWidget {
-  final String image;
-  final String notification;
-  final bool blend;
+  final Movie movie;
 
-  _HighlightSlide({
-    @required this.image,
-    this.notification,
-    this.blend = false,
-  });
+  _HighlightSlide({@required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +46,8 @@ class _HighlightSlide extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(image, fit: BoxFit.cover),
-            if (blend == true) ...[
+            Image.asset(movie.highlight.imagePath, fit: BoxFit.cover),
+            if (movie.highlight.blend == true) ...[
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -97,7 +64,7 @@ class _HighlightSlide extends StatelessWidget {
                 ),
               ),
             ],
-            if (notification != null) ...[
+            if (movie.highlight.notification != null) ...[
               Align(
                 alignment: Alignment.bottomLeft,
                 child: Padding(
@@ -106,7 +73,7 @@ class _HighlightSlide extends StatelessWidget {
                     bottom: 15,
                   ),
                   child: Text(
-                    notification,
+                    movie.highlight.notification,
                     style: TextStyle(fontSize: 11, color: Colors.white),
                   ),
                 ),

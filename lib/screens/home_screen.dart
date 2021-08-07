@@ -1,13 +1,17 @@
+import 'package:disney_plus/collections/movie_collection.dart';
 import 'package:disney_plus/components/category_showcase.dart';
 import 'package:disney_plus/components/custom_bottom_navigation_bar.dart';
 import 'package:disney_plus/components/highlight_slider.dart';
 import 'package:disney_plus/components/movie_list_view.dart';
 import 'package:disney_plus/components/sliver_home_app_bar.dart';
+import 'package:disney_plus/types/category_types.dart';
 import 'package:flutter/material.dart';
 
 const String movieBase = 'assets/images/movies/';
 
 class HomeScreen extends StatelessWidget {
+  var _movieCollection = MovieCollection();
+
   List<String> _newToDisneyPlus() {
     return [
       "${movieBase}chip_n_dale.PNG",
@@ -50,7 +54,9 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(top: 5),
           physics: BouncingScrollPhysics(),
           children: [
-            HighlightSlider(),
+            HighlightSlider(
+              movies: _movieCollection.getWithHighlights(),
+            ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -59,12 +65,12 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             MovieListView(
               label: 'New to Disney+',
-              images: _newToDisneyPlus(),
+              movies: _movieCollection.getByCategory(CategoryType.Marvel),
             ),
             SizedBox(height: 20),
             MovieListView(
               label: 'Recommended For You',
-              images: _recommended(),
+              movies: _movieCollection.getRandom(3),
             ),
           ],
         ),
