@@ -1,10 +1,11 @@
 import 'dart:math';
 
+import 'package:disney_plus/interfaces/i_movie_collection.dart';
 import 'package:disney_plus/models/movie.dart';
 import 'package:disney_plus/types/category_types.dart';
 import 'package:disney_plus/utilities/data_utils.dart';
 
-class MovieCollection {
+class MovieCollection implements IMovieCollection {
   List<Movie> _movies = [];
 
   MovieCollection() {
