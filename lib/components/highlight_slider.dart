@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:disney_plus/models/movie.dart';
+import 'package:disney_plus/screens/movie/movie_arguments.dart';
+import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class HighlightSlider extends StatelessWidget {
@@ -40,7 +42,11 @@ class _HighlightSlide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => print('tapped highlight'),
+      onTap: () => Navigator.pushNamed(
+        context,
+        kMovieScreenRoute,
+        arguments: MovieArguments(movie),
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Stack(

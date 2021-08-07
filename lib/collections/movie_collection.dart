@@ -8,14 +8,23 @@ import 'package:disney_plus/utilities/data_utils.dart';
 class MovieCollection implements IMovieCollection {
   List<Movie> _movies = [];
 
-  MovieCollection() {
-    _init();
+  MovieCollection._();
+
+  static final MovieCollection _instance = MovieCollection._();
+
+  factory MovieCollection() {
+    if (_instance._movies.isEmpty) {
+      _instance._movies = buildMovies();
+    }
+    return _instance;
   }
 
-  List<Movie> getWithHighlights() {
-    return _movies.where((movie) => movie.highlight != null).toList();
+  @override
+  List<Movie> getByCategory(CategoryType category) {
+    return _movies.where((movie) => movie.category == category).toList();
   }
 
+  @override
   List<Movie> getRandom(int numberOfMovies) {
     final random = Random();
     List<Movie> randomMovies = [];
@@ -26,9 +35,8 @@ class MovieCollection implements IMovieCollection {
     return randomMovies;
   }
 
-  List<Movie> getByCategory(CategoryType category) {
-    return _movies.where((movie) => movie.category == category).toList();
+  @override
+  List<Movie> getWithHighlights() {
+    return _movies.where((movie) => movie.highlight != null).toList();
   }
-
-  void _init() => _movies = buildMovies();
 }

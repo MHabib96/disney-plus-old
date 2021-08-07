@@ -1,4 +1,5 @@
-import 'package:disney_plus/screens/home_screen.dart';
+import 'package:disney_plus/routing.dart';
+import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(DisneyPlus());
@@ -8,11 +9,8 @@ class DisneyPlus extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
+      onGenerateRoute: Routing.generateRoute,
+      initialRoute: kHomeScreenRoute,
     );
   }
 }

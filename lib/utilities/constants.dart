@@ -1,3 +1,7 @@
+//Routes
+const String kHomeScreenRoute = '/';
+const String kMovieScreenRoute = '/movie';
+
 //Logos
 const String kHomeScreenLogo = 'assets/images/logos/white_logo.png';
 
