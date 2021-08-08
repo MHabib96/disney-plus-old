@@ -8,6 +8,8 @@ const String kHomeScreenLogo = 'assets/images/logos/white_logo.png';
 const String kMovieImageBaseUrl = 'assets/images/movies';
 const String kHighlightImageBaseUrl = 'assets/images/highlights';
 
+const double kMovieScreenHorizontalPadding = 15.0;
+
 //Category Logos
 const String kDisneyCategoryLogo = 'assets/images/category_logos/disney.png';
 const String kPixarCategoryLogo = 'assets/images/category_logos/pixar.png';

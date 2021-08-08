@@ -7,25 +7,34 @@ import 'package:disney_plus/utilities/constants.dart';
 List<Movie> buildMovies() {
   List<Movie> movies = [];
   movies.add(Movie(
-    id: 1,
+    //id: 1,
     title: 'Avengers: Age of Ultron',
     category: CategoryType.Marvel,
     browseImagePath: '$kMovieImageBaseUrl/avengers_aou.PNG',
   ));
   movies.add(Movie(
-    id: 2,
+    //id: 1,
+    title: 'Avengers: EndGame',
+    category: CategoryType.Marvel,
+    description: '''The epic finale to the Infinity Sage, 
+    this dramatic showdown pits the Avengers against Thanos.''',
+    browseImagePath: '$kMovieImageBaseUrl/avengers_endgame/browse.PNG',
+    selectedImagePath: '$kMovieImageBaseUrl/avengers_endgame/selected.png',
+  ));
+  movies.add(Movie(
+    //id: 2,
     title: 'Wonda Vision',
     category: CategoryType.Marvel,
     browseImagePath: '$kMovieImageBaseUrl/wonda_vision.PNG',
   ));
   movies.add(Movie(
-    id: 3,
+    //id: 3,
     title: 'The Falcon and the Winter Soldier',
     category: CategoryType.Marvel,
     browseImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier.PNG',
   ));
   movies.add(Movie(
-    id: 4,
+    //id: 4,
     title: 'Black Widow',
     category: CategoryType.Marvel,
     browseImagePath: '$kMovieImageBaseUrl/black_widow.PNG',
@@ -35,7 +44,7 @@ List<Movie> buildMovies() {
     ),
   ));
   movies.add(Movie(
-      id: 5,
+      //id: 5,
       title: 'Loki',
       browseImagePath: '$kMovieImageBaseUrl/loki.PNG',
       category: CategoryType.Marvel,

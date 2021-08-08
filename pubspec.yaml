@@ -28,6 +28,7 @@ flutter:
     - assets/images/highlights/
     - assets/images/movies/
     - assets/images/
+    - assets/images/movies/avengers_endgame/
 
   # fonts:
   #   - family: Schyler

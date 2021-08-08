@@ -1,4 +1,4 @@
-import 'package:disney_plus/screens/home_screen.dart';
+import 'package:disney_plus/screens/home/home_screen.dart';
 import 'package:disney_plus/screens/movie/movie_screen.dart';
 import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,6 @@ class Routing {
           builder: (_) => MovieScreen(arguments: settings.arguments),
         );
       default:
-        var test = settings.arguments;
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(

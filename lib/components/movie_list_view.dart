@@ -33,7 +33,6 @@ class MovieListView extends StatelessWidget {
         Container(
           height: 130,
           child: ListView.separated(
-            //shrinkWrap: true,
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
             itemCount: movies.length,
