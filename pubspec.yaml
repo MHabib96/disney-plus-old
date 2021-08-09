@@ -25,11 +25,13 @@ flutter:
   assets:
     - assets/images/logos/
     - assets/images/category_logos/
-    - assets/images/highlights/
     - assets/images/movies/
     - assets/images/
+    - assets/images/movies/avengers_age_of_ultron/
     - assets/images/movies/avengers_endgame/
+    - assets/images/movies/black_widow/
     - assets/images/movies/wonda_vision/
+    - assets/images/movies/the_falcon_and_the_winter_soldier/
     - assets/images/movies/loki/
 
   # fonts:
