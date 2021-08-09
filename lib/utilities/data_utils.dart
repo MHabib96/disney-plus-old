@@ -10,6 +10,23 @@ List<Movie> buildMovies() {
   List<Movie> movies = [];
   movies.add(Movie(
     id: 1,
+    title: 'Avengers: Age of Ultron',
+    category: CategoryType.Marvel,
+    duration: '2h 23m',
+    releaseDate: DateTime(2015, 4, 23),
+    rating: RatingType.Twelve,
+    genres: [
+      GenreType.ScienceFiction,
+      GenreType.SuperHero,
+      GenreType.ActionAdventure,
+    ],
+    description: 'Tony Stark unwittingly creates an A.I. monster bent on destroying mankind',
+    browseImagePath: '$kMovieImageBaseUrl/avengers_age_of_ultron/browse.PNG',
+    selectedImagePath: '$kMovieImageBaseUrl/avengers_age_of_ultron/selected.PNG',
+    logoImagePath: '$kMovieImageBaseUrl/avengers_age_of_ultron/logo.png',
+  ));
+  movies.add(Movie(
+    id: 1,
     title: 'Avengers: EndGame',
     category: CategoryType.Marvel,
     duration: '3h 4m',
@@ -28,6 +45,30 @@ List<Movie> buildMovies() {
     logoImagePath: '$kMovieImageBaseUrl/avengers_endgame/logo.png',
   ));
   movies.add(Movie(
+    id: 1,
+    title: 'Black Widow',
+    category: CategoryType.Marvel,
+    duration: '2h 15m',
+    releaseDate: DateTime(2021, 7, 9),
+    rating: RatingType.Twelve,
+    genres: [
+      GenreType.ScienceFiction,
+      GenreType.Spy,
+      GenreType.SuperHero,
+      GenreType.ActionAdventure,
+    ],
+    description: 'Natasha confronts her history as a spy '
+        'and the broken relationship left in her wake.',
+    browseImagePath: '$kMovieImageBaseUrl/black_widow/browse.PNG',
+    selectedImagePath: '$kMovieImageBaseUrl/black_widow/selected.PNG',
+    logoImagePath: '$kMovieImageBaseUrl/black_widow/logo.png',
+    isPremier: true,
+    highlight: Highlight(
+      imagePath: '$kMovieImageBaseUrl/black_widow/highlight.jpg',
+      notification: 'Now Streaming with Premier Access',
+    ),
+  ));
+  movies.add(Movie(
     id: 2,
     title: 'Wonda Vision',
     category: CategoryType.Marvel,
@@ -44,6 +85,23 @@ List<Movie> buildMovies() {
     browseImagePath: '$kMovieImageBaseUrl/wonda_vision/browse.PNG',
     selectedImagePath: '$kMovieImageBaseUrl/wonda_vision/selected.PNG',
     logoImagePath: '$kMovieImageBaseUrl/wonda_vision/logo.png',
+  ));
+  movies.add(Movie(
+    id: 3,
+    title: 'The Falcon and the Winter Solider',
+    category: CategoryType.Marvel,
+    duration: '1 season',
+    releaseDate: DateTime(2021, 3, 19),
+    rating: RatingType.Twelve,
+    genres: [
+      GenreType.ScienceFiction,
+      GenreType.SuperHero,
+      GenreType.Buddy,
+    ],
+    description: 'As The Flag Smashers escalate their efforts, Sam and Bucky take action.',
+    browseImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier/browse.PNG',
+    selectedImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier/selected.PNG',
+    logoImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier/logo.png',
   ));
   movies.add(Movie(
       //id: 5,
@@ -66,38 +124,6 @@ List<Movie> buildMovies() {
         imagePath: '$kMovieImageBaseUrl/loki/highlight.jpg',
         notification: 'All Episodes Now Available',
       )));
-
-  // movies.add(Movie(
-  //   //id: 1,
-  //   title: 'Avengers: Age of Ultron',
-  //   category: CategoryType.Marvel,
-  //   browseImagePath: '$kMovieImageBaseUrl/avengers_aou.PNG',
-  // ));
-  // movies.add(Movie(
-  //   //id: 3,
-  //   title: 'The Falcon and the Winter Soldier',
-  //   category: CategoryType.Marvel,
-  //   browseImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier.PNG',
-  // ));
-  // movies.add(Movie(
-  //   //id: 4,
-  //   title: 'Black Widow',
-  //   category: CategoryType.Marvel,
-  //   browseImagePath: '$kMovieImageBaseUrl/black_widow.PNG',
-  //   highlight: Highlight(
-  //     imagePath: '$kHighlightImageBaseUrl/black_widow.jpg',
-  //     notification: 'Now Streaming with\nPremier Access',
-  //   ),
-  // ));
-  // movies.add(Movie(
-  //     //id: 5,
-  //     title: 'Loki',
-  //     browseImagePath: '$kMovieImageBaseUrl/browse.PNG',
-  //     category: CategoryType.Marvel,
-  //     highlight: Highlight(
-  //       imagePath: '$kHighlightImageBaseUrl/highlight.jpg',
-  //       notification: 'All Episodes Now Available',
-  //     )));
   return movies;
 }
 
