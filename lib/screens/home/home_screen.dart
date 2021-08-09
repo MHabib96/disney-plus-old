@@ -3,7 +3,7 @@ import 'package:disney_plus/components/custom_bottom_navigation_bar.dart';
 import 'package:disney_plus/components/highlight_slider.dart';
 import 'package:disney_plus/components/movie_list_view.dart';
 import 'package:disney_plus/components/sliver_home_app_bar.dart';
-import 'package:disney_plus/types/category_types.dart';
+import 'package:disney_plus/types/category_type.dart';
 import 'package:disney_plus/utilities/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
@@ -42,10 +42,10 @@ class HomeScreen extends StatelessWidget {
               movies: globals.movieCollection.getByCategory(CategoryType.Marvel),
             ),
             SizedBox(height: 20),
-            MovieListView(
-              label: 'Recommended For You',
-              movies: globals.movieCollection.getRandom(3),
-            ),
+            // MovieListView(
+            //   label: 'Recommended For You',
+            //   movies: globals.movieCollection.getRandom(3),
+            // ),
           ],
         ),
       ),

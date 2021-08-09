@@ -1,84 +1,88 @@
-import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class MovieButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: kMovieScreenHorizontalPadding,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: ElevatedButton(
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.play_arrow_rounded, color: Colors.black),
-                    Text(
-                      'RESUME',
-                      style: TextStyle(color: Colors.black, fontSize: 17, letterSpacing: 2),
-                    ),
-                  ],
+    return Row(
+      children: [
+        ElevatedButton(
+          onPressed: () => print('playing...'),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            minimumSize: Size(0, double.maxFinite),
+          ),
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Row(
+              children: [
+                Icon(Icons.play_arrow_rounded, color: Colors.black),
+                Text(
+                  'PLAY',
+                  style: TextStyle(color: Colors.black, fontSize: 17, letterSpacing: 2),
                 ),
-              ),
-              onPressed: () => print('playing'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                minimumSize: Size(10, double.maxFinite),
-              ),
+              ],
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 0.5, bottom: 0.5, left: 5),
+        ),
+        SizedBox(width: 5),
+        LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 2),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _CircularButton(icon: Icons.add),
-                  _CircularButton(icon: Icons.download_sharp),
-                  _CircularButton(icon: Icons.people),
-                  _CircularButton(icon: Icons.upload_sharp),
+                  _CircularButton(
+                    icon: Icons.add,
+                    size: constraints.maxHeight,
+                  ),
+                  _CircularButton(
+                    icon: Icons.download_sharp,
+                    size: constraints.maxHeight,
+                  ),
+                  _CircularButton(
+                    icon: Icons.people,
+                    size: constraints.maxHeight,
+                  ),
+                  _CircularButton(
+                    icon: Icons.upload_sharp,
+                    size: constraints.maxHeight,
+                  ),
                 ],
               ),
-            ),
-          ),
-        ],
-      ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
 
 class _CircularButton extends StatelessWidget {
+  final double size;
   final IconData icon;
   final Function onTap;
 
   _CircularButton({
+    @required this.size,
     this.icon = Icons.close,
     this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: GestureDetector(
         onTap: () => onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 1),
-          child: Container(
-            height: double.maxFinite,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              shape: BoxShape.circle,
-              border: Border.all(width: 2, color: Colors.white),
-            ),
-            child: Icon(icon, color: Colors.white),
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            color: Colors.black,
+            shape: BoxShape.circle,
+            border: Border.all(width: 2, color: Colors.white),
           ),
+          child: Icon(icon, color: Colors.white),
         ),
       ),
     );

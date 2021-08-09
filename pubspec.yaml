@@ -29,6 +29,8 @@ flutter:
     - assets/images/movies/
     - assets/images/
     - assets/images/movies/avengers_endgame/
+    - assets/images/movies/wonda_vision/
+    - assets/images/movies/loki/
 
   # fonts:
   #   - family: Schyler

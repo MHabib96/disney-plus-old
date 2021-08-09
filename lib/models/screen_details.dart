@@ -1,4 +1,4 @@
-import 'package:disney_plus/types/device_screen_types.dart';
+import 'package:disney_plus/types/device_screen_type.dart';
 import 'package:flutter/material.dart';
 
 class ScreenDetails {
