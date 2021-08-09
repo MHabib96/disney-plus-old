@@ -1,4 +1,13 @@
-enum GenreType { ScienceFiction, Fantasy, SuperHero, ActionAdventure, Romance, Drama }
+enum GenreType {
+  ScienceFiction,
+  Fantasy,
+  SuperHero,
+  ActionAdventure,
+  Romance,
+  Drama,
+  Buddy,
+  Spy,
+}
 
 extension GenreExtensions on GenreType {
   String get name {
@@ -15,6 +24,10 @@ extension GenreExtensions on GenreType {
         return 'Romance';
       case GenreType.Drama:
         return 'Drama';
+      case GenreType.Buddy:
+        return 'Buddy';
+      case GenreType.Spy:
+        return 'Spy / Espionage';
       default:
         return 'Error: genre type not implemented';
     }
