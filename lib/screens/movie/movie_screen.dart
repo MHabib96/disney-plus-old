@@ -44,10 +44,21 @@ class MovieScreen extends StatelessWidget {
                         height: screenDetails.screenSize.height * 0.18,
                       ),
                     ),
+                    if (arguments.movie.isPremier) ...[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Image.asset(
+                          'assets/images/logos/premier_access.png',
+                          height: screenDetails.screenSize.height * 0.08,
+                        ),
+                      ),
+                    ],
                     SizedBox(height: 15),
                     SizedBox(
                       height: screenDetails.screenSize.height * 0.06,
-                      child: MovieButtons(),
+                      child: MovieButtons(
+                        isPremier: arguments.movie.isPremier,
+                      ),
                     ),
                     SizedBox(height: 10),
                     MovieDetails(movie: arguments.movie),

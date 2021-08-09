@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MovieButtons extends StatelessWidget {
+  final bool isPremier;
+
+  MovieButtons({this.isPremier = false});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,9 +19,11 @@ class MovieButtons extends StatelessWidget {
             fit: BoxFit.contain,
             child: Row(
               children: [
-                Icon(Icons.play_arrow_rounded, color: Colors.black),
+                if (!isPremier) ...[
+                  Icon(Icons.play_arrow_rounded, color: Colors.black),
+                ],
                 Text(
-                  'PLAY',
+                  !isPremier ? 'PLAY' : 'UNLOCK NOW',
                   style: TextStyle(color: Colors.black, fontSize: 17, letterSpacing: 2),
                 ),
               ],
@@ -35,14 +41,16 @@ class MovieButtons extends StatelessWidget {
                     icon: Icons.add,
                     size: constraints.maxHeight,
                   ),
-                  _CircularButton(
-                    icon: Icons.download_sharp,
-                    size: constraints.maxHeight,
-                  ),
-                  _CircularButton(
-                    icon: Icons.people,
-                    size: constraints.maxHeight,
-                  ),
+                  if (!isPremier) ...[
+                    _CircularButton(
+                      icon: Icons.download_sharp,
+                      size: constraints.maxHeight,
+                    ),
+                    _CircularButton(
+                      icon: Icons.people,
+                      size: constraints.maxHeight,
+                    ),
+                  ],
                   _CircularButton(
                     icon: Icons.upload_sharp,
                     size: constraints.maxHeight,

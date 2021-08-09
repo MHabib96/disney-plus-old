@@ -17,6 +17,7 @@ class Movie {
   final String browseImagePath;
   final String selectedImagePath;
   final String logoImagePath;
+  final bool isPremier;
   final Highlight highlight;
 
   Movie({
@@ -31,6 +32,7 @@ class Movie {
     @required this.browseImagePath,
     @required this.selectedImagePath,
     @required this.logoImagePath,
+    this.isPremier = false,
     this.highlight,
   });
 }
