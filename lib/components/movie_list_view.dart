@@ -1,6 +1,5 @@
 import 'package:disney_plus/models/movie.dart';
-import 'package:disney_plus/screens/movie/movie_arguments.dart';
-import 'package:disney_plus/utilities/constants.dart';
+import 'package:disney_plus/screens/movie/movie_screen.dart';
 import 'package:flutter/material.dart';
 
 class MovieListView extends StatelessWidget {
@@ -39,10 +38,9 @@ class MovieListView extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               return GestureDetector(
-                onTap: () => Navigator.pushNamed(
+                onTap: () => Navigator.push(
                   context,
-                  kMovieScreenRoute,
-                  arguments: MovieArguments(movies[index]),
+                  MaterialPageRoute(builder: (_) => MovieScreen(movie: movies[index])),
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),

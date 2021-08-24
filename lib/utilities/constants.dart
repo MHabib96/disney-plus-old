@@ -1,9 +1,12 @@
-//Routes
-const String kHomeScreenRoute = '/';
-const String kMovieScreenRoute = '/movie';
+import 'package:disney_plus/types/tab_type.dart';
+
+//Navigator Base Screen
+const TabType kNavigatorDefaultKey = TabType.Home;
+const int kNavigatorDefaultIndex = 0;
 
 //Logos
 const String kHomeScreenLogo = 'assets/images/logos/white_logo.png';
+const String kPremierAccessLogo = 'assets/images/logos/premier_access.png';
 
 const String kMovieImageBaseUrl = 'assets/images/movies';
 

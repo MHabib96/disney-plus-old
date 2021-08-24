@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:disney_plus/interfaces/i_movie_collection.dart';
 import 'package:disney_plus/models/movie.dart';
-import 'package:disney_plus/types/category_types.dart';
+import 'package:disney_plus/types/category_type.dart';
 import 'package:disney_plus/utilities/data_utils.dart';
 
 class MovieCollection implements IMovieCollection {
@@ -17,6 +17,11 @@ class MovieCollection implements IMovieCollection {
       _instance._movies = buildMovies();
     }
     return _instance;
+  }
+
+  @override
+  Movie getById(movieId) {
+    return _movies.firstWhere((movie) => movie.id == movieId);
   }
 
   @override
