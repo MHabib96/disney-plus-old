@@ -7,6 +7,9 @@ import 'package:disney_plus/screens/movie/movie_details.dart';
 import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
+//TODO: Shade top of screen.
+//TODO: Add blurred background.
+//TODO: Add movie tabs (Suggested, Extras, Details)
 class MovieScreen extends StatelessWidget {
   final Movie movie;
 
