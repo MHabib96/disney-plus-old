@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:disney_plus/components/builders/responsive_base.dart';
-import 'package:disney_plus/components/movie/movie_buttons.dart';
-import 'package:disney_plus/components/movie/movie_details.dart';
 import 'package:disney_plus/models/movie.dart';
+import 'package:disney_plus/screens/movie/movie_buttons.dart';
+import 'package:disney_plus/screens/movie/movie_details.dart';
 import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,7 @@
-import 'package:disney_plus/components/category_showcase.dart';
-import 'package:disney_plus/components/highlight_slider.dart';
 import 'package:disney_plus/components/movie_list_view.dart';
-import 'package:disney_plus/components/sliver_home_app_bar.dart';
+import 'package:disney_plus/screens/home/category_showcase.dart';
+import 'package:disney_plus/screens/home/highlight_slider.dart';
+import 'package:disney_plus/screens/home/sliver_home_app_bar.dart';
 import 'package:disney_plus/types/category_type.dart';
 import 'package:disney_plus/utilities/globals.dart' as globals;
 import 'package:flutter/material.dart';
