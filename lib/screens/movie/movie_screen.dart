@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:disney_plus/components/builders/responsive_base.dart';
+import 'package:disney_plus/components/movie_tabs/movie_tabs.dart';
 import 'package:disney_plus/models/movie.dart';
 import 'package:disney_plus/screens/movie/movie_buttons.dart';
 import 'package:disney_plus/screens/movie/movie_details.dart';
@@ -68,6 +69,8 @@ class MovieScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 15),
                     MovieDetails(movie: movie),
+                    SizedBox(height: 30),
+                    MovieTabs(),
                   ],
                 ),
               ),
