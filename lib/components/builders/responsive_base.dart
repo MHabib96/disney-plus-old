@@ -11,17 +11,15 @@ class ResponsiveBase extends StatelessWidget {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
 
-    return SafeArea(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          var screenDetails = ScreenDetails(
-            orientation: mediaQuery.orientation,
-            deviceScreenType: getDeviceType(mediaQuery),
-            screenSize: constraints.biggest,
-          );
-          return builder(context, screenDetails);
-        },
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        var screenDetails = ScreenDetails(
+          orientation: mediaQuery.orientation,
+          deviceScreenType: getDeviceType(mediaQuery),
+          screenSize: constraints.biggest,
+        );
+        return builder(context, screenDetails);
+      },
     );
   }
 }
