@@ -6,10 +6,22 @@ import 'package:disney_plus/types/category_type.dart';
 import 'package:disney_plus/utilities/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    globals.homeScrollController = ScrollController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
+      controller: globals.homeScrollController,
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
           SliverPersistentHeader(

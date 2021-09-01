@@ -6,10 +6,10 @@ import 'package:disney_plus/types/tab_type.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigator extends StatelessWidget {
-  final GlobalKey<NavigatorState> navigatorKey;
   final TabType tabType;
+  final GlobalKey<NavigatorState> navigatorKey;
 
-  TabNavigator({this.navigatorKey, this.tabType});
+  TabNavigator({this.tabType, this.navigatorKey});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:disney_plus/screens/navigator_base/tab_navigator.dart';
 import 'package:disney_plus/types/tab_type.dart';
 import 'package:disney_plus/utilities/constants.dart';
+import 'package:disney_plus/utilities/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 class NavigatorBaseScreen extends StatefulWidget {
@@ -20,11 +21,22 @@ class _NavigatorBaseScreenState extends State<NavigatorBaseScreen> {
   };
 
   void _onSelectedTab(TabType selectedTab) {
-    //Selecting tab of current screen will navigate back to initial tab screen.
-    if (selectedTab == _currentTab) {
+    //Scroll to top of home screen when home tab is selected on home route.
+    if (selectedTab == _currentTab &&
+        selectedTab == TabType.Home &&
+        !_navigatorKeys[selectedTab].currentState.canPop()) {
+      globals.homeScrollController.animateTo(
+        0,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    }
+    //Navigate back to tab route when current tab is selected.
+    else if (selectedTab == _currentTab) {
       _navigatorKeys[selectedTab].currentState.popUntil((route) => route.isFirst);
-    } else {
-      //Update state to newly selected tab screen.
+    }
+    //Update state to newly selected tab screen.
+    else {
       setState(() {
         _currentTab = selectedTab;
         _currentIndex = selectedTab.index;
@@ -36,8 +48,8 @@ class _NavigatorBaseScreenState extends State<NavigatorBaseScreen> {
     return Offstage(
       offstage: _currentTab != tabType,
       child: TabNavigator(
-        navigatorKey: _navigatorKeys[tabType],
         tabType: tabType,
+        navigatorKey: _navigatorKeys[tabType],
       ),
     );
   }
