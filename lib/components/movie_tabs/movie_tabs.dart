@@ -1,11 +1,16 @@
 import 'package:disney_plus/components/movie_tabs/tabs/details_tab.dart';
 import 'package:disney_plus/components/movie_tabs/tabs/extras_tab.dart';
 import 'package:disney_plus/components/movie_tabs/tabs/suggested_tab.dart';
+import 'package:disney_plus/models/movie.dart';
 import 'package:flutter/material.dart';
 
 enum _TabType { Suggested, Extras, Details }
 
 class MovieTabs extends StatefulWidget {
+  final List<Movie> suggestedMovies;
+
+  MovieTabs({this.suggestedMovies});
+
   @override
   _MovieTabsState createState() => _MovieTabsState();
 }
@@ -51,7 +56,11 @@ class _MovieTabsState extends State<MovieTabs> {
           height: 0,
           color: Colors.white,
         ),
-        _MovieTabNavigator(selectedTab: _selectedTab),
+        SizedBox(height: 10),
+        _MovieTabNavigator(
+          selectedTab: _selectedTab,
+          suggestedMovies: widget.suggestedMovies,
+        ),
       ],
     );
   }
@@ -100,8 +109,9 @@ class _TabButton extends StatelessWidget {
 
 class _MovieTabNavigator extends StatelessWidget {
   final _TabType selectedTab;
+  final List<Movie> suggestedMovies;
 
-  _MovieTabNavigator({this.selectedTab});
+  _MovieTabNavigator({this.selectedTab, this.suggestedMovies});
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +119,9 @@ class _MovieTabNavigator extends StatelessWidget {
 
     switch (selectedTab) {
       case _TabType.Suggested:
-        child = SuggestedTab();
+        child = SuggestedTab(
+          movies: suggestedMovies,
+        );
         break;
       case _TabType.Extras:
         child = ExtrasTab();

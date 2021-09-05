@@ -10,7 +10,7 @@ const String kPremierAccessLogo = 'assets/images/logos/premier_access.png';
 
 const String kMovieImageBaseUrl = 'assets/images/movies';
 
-const double kMovieScreenHorizontalPadding = 15.0;
+const double kMovieScreenHorizontalPadding = 20.0;
 
 //Category Logos
 const String kDisneyCategoryLogo = 'assets/images/category_logos/disney.png';

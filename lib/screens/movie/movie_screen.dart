@@ -5,6 +5,7 @@ import 'package:disney_plus/components/movie_tabs/movie_tabs.dart';
 import 'package:disney_plus/models/movie.dart';
 import 'package:disney_plus/screens/movie/movie_buttons.dart';
 import 'package:disney_plus/screens/movie/movie_details.dart';
+import 'package:disney_plus/services/movie_service.dart';
 import 'package:disney_plus/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,10 @@ class MovieScreen extends StatelessWidget {
   MovieScreen({
     @required this.movie,
   });
+
+  List<Movie> _getSuggestedMovies() {
+    return MovieService().getSuggestedMovies(movie, 2, 4);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +75,9 @@ class MovieScreen extends StatelessWidget {
                     SizedBox(height: 15),
                     MovieDetails(movie: movie),
                     SizedBox(height: 30),
-                    MovieTabs(),
+                    MovieTabs(
+                      suggestedMovies: _getSuggestedMovies(),
+                    ),
                   ],
                 ),
               ),
