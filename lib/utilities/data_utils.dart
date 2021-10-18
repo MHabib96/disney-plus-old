@@ -20,13 +20,21 @@ List<Movie> buildMovies() {
       GenreType.SuperHero,
       GenreType.ActionAdventure,
     ],
+    starring: [
+      "Robert Downey Jr.",
+      "Chris Hemsworth",
+      "Mark Ruffalo",
+      "Chris Evans",
+      "Scarlett Johansson",
+      "Jeremy Renner",
+    ],
     description: 'Tony Stark unwittingly creates an A.I. monster bent on destroying mankind',
     browseImagePath: '$kMovieImageBaseUrl/avengers_age_of_ultron/browse.PNG',
     selectedImagePath: '$kMovieImageBaseUrl/avengers_age_of_ultron/selected.PNG',
     logoImagePath: '$kMovieImageBaseUrl/avengers_age_of_ultron/logo.png',
   ));
   movies.add(Movie(
-    id: 1,
+    id: 2,
     title: 'Avengers: EndGame',
     category: CategoryType.Marvel,
     duration: '3h 4m',
@@ -38,6 +46,14 @@ List<Movie> buildMovies() {
       GenreType.SuperHero,
       GenreType.ActionAdventure,
     ],
+    starring: [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Mark Ruffalo",
+      "Chris Hemsworth",
+      "Scarlett Johansson",
+      "Jeremy Renner",
+    ],
     description: 'The epic finale to the Infinity Sage, '
         'this dramatic showdown pits the Avengers against Thanos.',
     browseImagePath: '$kMovieImageBaseUrl/avengers_endgame/browse.PNG',
@@ -45,7 +61,7 @@ List<Movie> buildMovies() {
     logoImagePath: '$kMovieImageBaseUrl/avengers_endgame/logo.png',
   ));
   movies.add(Movie(
-    id: 1,
+    id: 3,
     title: 'Black Widow',
     category: CategoryType.Marvel,
     duration: '2h 15m',
@@ -56,6 +72,14 @@ List<Movie> buildMovies() {
       GenreType.Spy,
       GenreType.SuperHero,
       GenreType.ActionAdventure,
+    ],
+    starring: [
+      "Scarlett Johansson",
+      "Florence Pugh",
+      "David Harbour",
+      "O-T Fagbenie",
+      "Olga Kurylenko",
+      "William Hurt"
     ],
     description: 'Natasha confronts her history as a spy '
         'and the broken relationship left in her wake.',
@@ -69,7 +93,7 @@ List<Movie> buildMovies() {
     ),
   ));
   movies.add(Movie(
-    id: 2,
+    id: 4,
     title: 'Wonda Vision',
     category: CategoryType.Marvel,
     duration: '1 season',
@@ -80,6 +104,12 @@ List<Movie> buildMovies() {
       GenreType.Drama,
       GenreType.ScienceFiction,
     ],
+    starring: [
+      "Elizabeth Olsen",
+      "Paul Bettany",
+      "Kathryn Hahn",
+      "Kat Dennings",
+    ],
     description: 'The events of WondaVision come to a head, '
         'and the destinies of all who took part are determined',
     browseImagePath: '$kMovieImageBaseUrl/wonda_vision/browse.PNG',
@@ -87,7 +117,7 @@ List<Movie> buildMovies() {
     logoImagePath: '$kMovieImageBaseUrl/wonda_vision/logo.png',
   ));
   movies.add(Movie(
-    id: 3,
+    id: 5,
     title: 'The Falcon and the Winter Solider',
     category: CategoryType.Marvel,
     duration: '1 season',
@@ -98,13 +128,19 @@ List<Movie> buildMovies() {
       GenreType.SuperHero,
       GenreType.Buddy,
     ],
+    starring: [
+      "Anthony Mackie",
+      "Sebastian Stan",
+      "Emily VanCamp",
+      "Wyatt Russell",
+    ],
     description: 'As The Flag Smashers escalate their efforts, Sam and Bucky take action.',
     browseImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier/browse.PNG',
     selectedImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier/selected.PNG',
     logoImagePath: '$kMovieImageBaseUrl/the_falcon_and_the_winter_soldier/logo.png',
   ));
   movies.add(Movie(
-      //id: 5,
+      id: 6,
       title: 'Loki',
       category: CategoryType.Marvel,
       duration: '1 season',
@@ -114,6 +150,13 @@ List<Movie> buildMovies() {
         GenreType.ScienceFiction,
         GenreType.Fantasy,
         GenreType.ActionAdventure,
+      ],
+      starring: [
+        "Tom Hiddleston",
+        "Sophia Di Martino",
+        "Owen Wilson",
+        "Jonathon Majors",
+        "Gugu Mbatha-Raw",
       ],
       description: 'The clock is ticking in the season finale which finds '
           'Loki and Sylvie on a date with destiny.',

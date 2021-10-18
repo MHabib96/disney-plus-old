@@ -19,10 +19,6 @@ class MovieScreen extends StatelessWidget {
     @required this.movie,
   });
 
-  List<Movie> _getSuggestedMovies() {
-    return MovieService().getSuggestedMovies(movie, 2, 4);
-  }
-
   @override
   Widget build(BuildContext context) {
     return ResponsiveBase(
@@ -76,7 +72,7 @@ class MovieScreen extends StatelessWidget {
                     MovieDetails(movie: movie),
                     SizedBox(height: 30),
                     MovieTabs(
-                      suggestedMovies: _getSuggestedMovies(),
+                      suggestedMovies: MovieService().getSuggestedMovies(movie, 4),
                     ),
                   ],
                 ),

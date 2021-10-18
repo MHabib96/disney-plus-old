@@ -1,5 +1,8 @@
+import 'package:disney_plus/collections/movie_collection.dart';
+import 'package:disney_plus/extensions/list_extensions.dart';
 import 'package:disney_plus/interfaces/i_movie_service.dart';
 import 'package:disney_plus/models/movie.dart';
+import 'package:disney_plus/screens/movie/key_value_pair.dart';
 
 class MovieService implements IMovieService {
   MovieService._();
@@ -8,12 +11,30 @@ class MovieService implements IMovieService {
 
   factory MovieService() => _instance;
 
-  //TODO: Use passed movie and get a collection of suggested movies.
-  //TODO: limit is the max count of returned movies.
-  //TODO: exclude passed movie for suggested movies.
-  //TODO: use movie name, actors, and category for smart suggestions.
   @override
-  List<Movie> getSuggestedMovies(Movie movie, int min, int max) {
-    return [movie, movie, movie, movie, movie];
+  List<Movie> getSuggestedMovies(Movie movie, int count) {
+    var mutualMovies = MovieCollection().getByCategory(movie.category);
+    mutualMovies.removeWhere((x) => x.id == movie.id);
+
+    //key: mutual score, value: movie id
+    List<KeyValuePair<int, int>> mutualMoviesWithScore = [];
+
+    //Assign a score to movie based on mutual actors.
+    for (var mutualMovie in mutualMovies) {
+      int mutualScore = 0;
+      for (var actor in mutualMovie.starring) {
+        if (movie.starring.contains(actor)) {
+          mutualScore++;
+        }
+      }
+      mutualMoviesWithScore.add(new KeyValuePair(mutualScore, mutualMovie.id));
+    }
+
+    mutualMoviesWithScore.sort((x, y) => y.key.compareTo(x.key));
+
+    return mutualMoviesWithScore
+        .takeUpTo(count)
+        .map((e) => mutualMovies.singleWhere((element) => element.id == e.value))
+        .toList();
   }
 }

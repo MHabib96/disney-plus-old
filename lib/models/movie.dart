@@ -12,6 +12,7 @@ class Movie {
   final DateTime releaseDate;
   final String duration;
   final RatingType rating;
+  final List<String> starring;
   final List<GenreType> genres;
   final CategoryType category;
   final String browseImagePath;
@@ -27,6 +28,7 @@ class Movie {
     @required this.releaseDate,
     @required this.duration,
     @required this.rating,
+    @required this.starring,
     @required this.genres,
     @required this.category,
     @required this.browseImagePath,

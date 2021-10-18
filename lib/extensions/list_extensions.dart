@@ -28,4 +28,9 @@ extension ListExtensions<T> on List<T> {
 
     return chunks;
   }
+
+  Iterable<T> takeUpTo(int count) {
+    if (this.length < count) count = this.length;
+    return this.take(count);
+  }
 }

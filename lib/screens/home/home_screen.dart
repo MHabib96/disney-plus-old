@@ -1,3 +1,4 @@
+import 'package:disney_plus/collections/movie_collection.dart';
 import 'package:disney_plus/components/movie_list_view.dart';
 import 'package:disney_plus/screens/home/category_showcase.dart';
 import 'package:disney_plus/screens/home/highlight_slider.dart';
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         physics: BouncingScrollPhysics(),
         children: [
           HighlightSlider(
-            movies: globals.movieCollection.getWithHighlights(),
+            movies: MovieCollection().getWithHighlights(),
           ),
           SizedBox(height: 20),
           Padding(
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 20),
           MovieListView(
             label: 'New to Disney+',
-            movies: globals.movieCollection.getByCategory(CategoryType.Marvel),
+            movies: MovieCollection().getByCategory(CategoryType.Marvel),
           ),
         ],
       ),
