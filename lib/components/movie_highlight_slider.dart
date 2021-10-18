@@ -3,10 +3,10 @@ import 'package:disney_plus/models/movie.dart';
 import 'package:disney_plus/screens/movie/movie_screen.dart';
 import 'package:flutter/material.dart';
 
-class HighlightSlider extends StatelessWidget {
+class MovieHighlightSlider extends StatelessWidget {
   final List<Movie> movies;
 
-  HighlightSlider({@required this.movies});
+  MovieHighlightSlider({@required this.movies});
 
   @override
   Widget build(BuildContext context) {

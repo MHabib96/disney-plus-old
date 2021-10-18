@@ -1,8 +1,8 @@
 import 'package:disney_plus/collections/movie_collection.dart';
 import 'package:disney_plus/extensions/list_extensions.dart';
 import 'package:disney_plus/interfaces/i_movie_service.dart';
+import 'package:disney_plus/models/key_value_pair.dart';
 import 'package:disney_plus/models/movie.dart';
-import 'package:disney_plus/screens/movie/key_value_pair.dart';
 
 class MovieService implements IMovieService {
   MovieService._();

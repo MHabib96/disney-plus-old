@@ -1,7 +1,7 @@
 import 'package:disney_plus/collections/movie_collection.dart';
+import 'package:disney_plus/components/category_showcase.dart';
+import 'package:disney_plus/components/movie_highlight_slider.dart';
 import 'package:disney_plus/components/movie_list_view.dart';
-import 'package:disney_plus/screens/home/category_showcase.dart';
-import 'package:disney_plus/screens/home/highlight_slider.dart';
 import 'package:disney_plus/screens/home/sliver_home_app_bar.dart';
 import 'package:disney_plus/types/category_type.dart';
 import 'package:disney_plus/utilities/globals.dart' as globals;
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.only(top: 5),
         physics: BouncingScrollPhysics(),
         children: [
-          HighlightSlider(
+          MovieHighlightSlider(
             movies: MovieCollection().getWithHighlights(),
           ),
           SizedBox(height: 20),
